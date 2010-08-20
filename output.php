@@ -1,18 +1,16 @@
 <html>
+<body bgcolor="black" onload="javascript:window.self.location.href='#bot'">
+<font color="white" size="1">
+
 <?
   if (strlen($_POST["data"]) > 0 ) { 
-    $data = $_POST["data"] . "\n\r" or die("Making post failed");
+    $data = $_POST["data"] . "\n\r";
     $fp = fsockopen("localhost", 4077, $errno, $errstr, 30);
     fwrite($fp,$data);
     fclose($fp);
+    sleep(1); #Otherwise, we don't see the result of our command
   }
-?>
-
-<body bgcolor="black" onload="javascript:window.self.location.href='#bot'">
-<font color="white" size="1">
-<?
- sleep(1); #Otherwise, we don't see the result of our command
- print `tail -n 50 log.log`; #This is incompatable with Windows servers.
+  print `tail -n 50 log.log`; #This is incompatable with Windows servers.
 ?>
 
 <form action="output.php" method="post">

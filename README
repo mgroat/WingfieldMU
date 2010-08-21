@@ -1,3 +1,29 @@
-Wingfield MU* client.
+Wingfield MU* client, by Matthew Groat
 
-This project is licensed under GPL v. 3.  It should be noted that everything here is a very early version, and is horrible unsecure.
+A web-based MU* client for mobile phones that allows one user to connect to one MU*.
+
+This project is licensed under GPLv3.  It should be noted that everything here is a very early version, and is horribly unsecure.
+
+FEATURES:
+
+Should be able to run on pretty much any cell phone, or any other device with a web browser.
+
+Maintains a persistent connection to your MU*.  If you navigate away from the page and come back, you'll be able to read a backscroll of everything you've missed.
+
+CAVEATS:
+
+Only allows one user to be connected to one MU*.
+
+If you get disconnected from your MU*, you'll need to get to your webserver to start it up again.  This means you can only play games that allow you to idle for extremely long periods of time.
+
+HOW TO USE:
+
+Run a webserver with Linux, php, and Python installed.
+
+Place the files 'output.php' and 'prox.py' somewhere on your webserver.  It's best to make sure this program is in an area secured via .htaccess or some other means, as WingfieldMU has no security of its own.
+
+Edit 'prox.py'.  Near the beginning of the file you'll need to change ('localhost','1987') to the url and port of the MUSH you wish to connect to.  You'll also need to change "connect <name> <password>" to whatever connection string you use to access your MU*.
+
+Navigate to the directory you've stored these files in, and run 'python prox.py'.  The proxy server will connect and log into your MU*.
+
+Point your cell phone's web browser at output.php on your webserver.  The interface should be self-explanatory.  Things aren't updated in real-time, so you'll need to manually refresh to get new output from your MU*.

@@ -4,7 +4,7 @@
 
 <?
   if (strlen($_POST["data"]) > 0 ) { 
-    $data = $_POST["data"] . "\n\r";
+    $data = $_POST["data"] . "\n";
     $fp = fsockopen("localhost", 4077, $errno, $errstr, 30);
     fwrite($fp,$data);
     fclose($fp);

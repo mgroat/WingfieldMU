@@ -30,8 +30,8 @@ def mushListen(conn):
   data = re.sub(expression,"",data)
   expression = "<|>"
   data = re.sub(expression,"|",data)
-  expression = "\r" #For linebreaks
-  data = re.sub(expression,"\r<br>",data)
+  expression = "\n" #For linebreaks
+  data = re.sub(expression,"\n<br>",data)
   f = open('./log.log','a')
   f.write(data)
   f.close()
